@@ -3,10 +3,10 @@ import type { SiteContent } from './types';
 export const ko: SiteContent = {
   htmlLang: 'ko',
   meta: {
-    title: 'onewwol | 화장품 OEM ODM 소량생산 파트너',
+    title: 'onewwol company | 화장품 OEM ODM 소량생산 파트너',
     description:
-      'onewwol은 제형 개발, 콘셉트 기획, 디자인·패키징, 제조·출고, 수출까지 연결하는 화장품 OEM/ODM 원스톱 파트너입니다.',
-    ogTitle: 'onewwol — 화장품 OEM/ODM 원스톱 파트너',
+      'onewwol company는 제형 개발, 콘셉트 기획, 디자인·패키징, 제조·출고, 수출까지 연결하는 화장품 OEM/ODM 원스톱 파트너입니다.',
+    ogTitle: 'onewwol company — 화장품 OEM/ODM 원스톱 파트너',
     ogDescription:
       '소량 생산부터 브랜드 완성까지, 화장품 OEM/ODM을 하나의 흐름으로 연결합니다.',
   },
@@ -21,7 +21,7 @@ export const ko: SiteContent = {
     langLabel: 'EN',
   },
   hero: {
-    eyebrow: 'onewwol',
+    eyebrow: 'onewwol company',
     title: '소량 생산부터 브랜드 완성까지,\n화장품 OEM/ODM을 하나의 흐름으로 연결합니다.',
     body: '제형 개발, 콘셉트 기획, 디자인·패키징, 제조·출고, 수출까지\n브랜드가 원하는 결과에 도달하도록 함께 설계합니다.',
     primaryCta: 'OEM/ODM 문의하기',
@@ -211,6 +211,6 @@ export const ko: SiteContent = {
     email: '이메일: 입력 예정',
     phone: '연락처: 입력 예정',
     nav: ['About', 'Services', 'Capabilities', 'Process', 'Partners', 'Contact'],
-    rights: '© onewwol. All rights reserved.',
+    rights: '© onewwol company. All rights reserved.',
   },
 };

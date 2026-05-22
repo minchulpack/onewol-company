@@ -40,7 +40,7 @@ export function Header() {
           href="/"
           className="text-[15px] tracking-[0.08em] text-[var(--brand-charcoal)]"
         >
-          onewwol
+          onewwol company
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">

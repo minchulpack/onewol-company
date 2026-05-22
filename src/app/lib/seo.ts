@@ -22,7 +22,7 @@ export function useSeo(locale: Locale, t: SiteContent) {
     setMeta('og:type', 'website', true);
     setMeta('og:locale', locale === 'ko' ? 'ko_KR' : 'en_US', true);
     setMeta('og:url', `${SITE_URL}${locale === 'en' ? '/en' : '/ko'}`, true);
-    setMeta('og:site_name', 'onewwol', true);
+    setMeta('og:site_name', 'onewwol company', true);
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', t.meta.ogTitle);
     setMeta('twitter:description', t.meta.ogDescription);
@@ -35,7 +35,7 @@ export function useSeo(locale: Locale, t: SiteContent) {
     setJsonLd({
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'onewwol',
+      name: 'onewwol company',
       url: SITE_URL,
       description: t.meta.description,
       sameAs: [],
