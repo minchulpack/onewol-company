@@ -17,8 +17,8 @@ export function Footer() {
     <footer className="border-t border-[var(--brand-line)] bg-[var(--brand-warm-white)]">
       <div className="mx-auto max-w-[1200px] px-6 py-16 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <Link href="/" className="text-[15px] tracking-[0.18em] text-[var(--brand-charcoal)]">
-            O_NEWOL<span className="text-[var(--brand-accent)]">_</span>COMPANY
+          <Link href="/" className="text-[15px] tracking-[0.08em] text-[var(--brand-charcoal)]">
+            onewwol
           </Link>
           <p className="mt-4 text-sm leading-[1.7] text-[var(--brand-soft-gray)]">
             {t.footer.description}

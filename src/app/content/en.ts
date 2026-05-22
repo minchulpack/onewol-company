@@ -3,10 +3,10 @@ import type { SiteContent } from './types';
 export const en: SiteContent = {
   htmlLang: 'en',
   meta: {
-    title: 'O_NEWOL COMPANY | Cosmetic OEM ODM Partner',
+    title: 'onewwol | Cosmetic OEM ODM Partner',
     description:
-      'O_NEWOL COMPANY is a cosmetic OEM/ODM partner connecting formula development, concept planning, package design, manufacturing, delivery, and export support.',
-    ogTitle: 'O_NEWOL COMPANY — Cosmetic OEM/ODM Partner',
+      'onewwol is a cosmetic OEM/ODM partner connecting formula development, concept planning, package design, manufacturing, delivery, and export support.',
+    ogTitle: 'onewwol — Cosmetic OEM/ODM Partner',
     ogDescription:
       'From small-batch production to complete brand development, we connect cosmetic OEM/ODM processes into one seamless flow.',
   },
@@ -21,7 +21,7 @@ export const en: SiteContent = {
     langLabel: 'KR',
   },
   hero: {
-    eyebrow: 'O_NEWOL COMPANY',
+    eyebrow: 'onewwol',
     title:
       'From small-batch production to complete brand development,\nwe connect cosmetic OEM/ODM into one seamless flow.',
     body: 'From formula development and concept planning to package design,\nmanufacturing, delivery, and export support,\nwe help brands reach their desired outcome.',
@@ -171,7 +171,7 @@ export const en: SiteContent = {
     title: 'Business Partners',
     body: 'We have worked with a wide range of brands, institutions, and beauty-related partners.',
     list: [
-      'Rahel', 'Induk University', 'O_NEWOL Pigment', 'Korea Pedi Association', 'Seojeong University',
+      'Rahel', 'Induk University', 'onewwol Pigment', 'Korea Pedi Association', 'Seojeong University',
       'Mulibly', 'Puscore', 'Evier', 'PBS', 'Celgin Cosmetic', 'CHA Univ. of Medicine', 'GLK Bio',
       'Celcos', 'Dr. Pim', 'Aribel', 'Sookmyung Women’s Univ.', 'Erika', 'Lina Korea',
     ],
@@ -212,6 +212,6 @@ export const en: SiteContent = {
     email: 'Email: TBD',
     phone: 'Phone: TBD',
     nav: ['About', 'Services', 'Capabilities', 'Process', 'Partners', 'Contact'],
-    rights: '© O_NEWOL COMPANY. All rights reserved.',
+    rights: '© onewwol. All rights reserved.',
   },
 };

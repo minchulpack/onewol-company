@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import { content, type Locale, type SiteContent } from '../content';
 
-export const SITE_URL = 'https://onewol.com'; // TODO: replace with real domain after deployment
+export const SITE_URL = 'https://www.onewwol.com';
 
 interface I18nContextValue {
   locale: Locale;

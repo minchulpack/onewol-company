@@ -38,9 +38,9 @@ export function Header() {
       <div className="mx-auto flex h-16 md:h-20 max-w-[1200px] items-center justify-between px-6">
         <Link
           href="/"
-          className="text-[15px] tracking-[0.18em] text-[var(--brand-charcoal)]"
+          className="text-[15px] tracking-[0.08em] text-[var(--brand-charcoal)]"
         >
-          O_NEWOL<span className="text-[var(--brand-accent)]">_</span>COMPANY
+          onewwol
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
