@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router';
+import { BrowserRouter, Navigate, Routes, Route, useLocation, useNavigate } from 'react-router';
 import { I18nContext, content, getLocaleFromPath, localePath, pathForLocale } from './lib/i18n';
 import type { Locale } from './content';
 import { Header } from './components/layout/Header';
@@ -19,10 +19,11 @@ import { ScrollToTop } from './components/ScrollToTop';
  * Make / Vite shell. When porting to Next.js:
  *   - Replace BrowserRouter with the App Router file layout:
  *       app/layout.tsx          -> wraps <I18nProvider>
- *       app/page.tsx            -> renders <HomePage /> with locale="ko"
+ *       app/page.tsx            -> redirects to /en
  *       app/en/page.tsx         -> renders <HomePage /> with locale="en"
- *       app/about/page.tsx      -> renders <AboutPage /> with locale="ko"
+ *       app/ko/page.tsx         -> renders <HomePage /> with locale="ko"
  *       app/en/about/page.tsx   -> renders <AboutPage /> with locale="en"
+ *       app/ko/about/page.tsx   -> renders <AboutPage /> with locale="ko"
  *   - Move useSeo() into each route's generateMetadata().
  *   - Replace this BrowserRouter with next/navigation.
  */
@@ -76,14 +77,7 @@ export default function App() {
         <ScrollToTop />
         <Layout>
           <Routes>
-            {/* Korean routes */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/capabilities" element={<CapabilitiesPage />} />
-            <Route path="/process" element={<ProcessPage />} />
-            <Route path="/partners" element={<PartnersPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/" element={<Navigate to="/en" replace />} />
 
             {/* English routes */}
             <Route path="/en" element={<HomePage />} />
@@ -94,8 +88,17 @@ export default function App() {
             <Route path="/en/partners" element={<PartnersPage />} />
             <Route path="/en/contact" element={<ContactPage />} />
 
+            {/* Korean routes */}
+            <Route path="/ko" element={<HomePage />} />
+            <Route path="/ko/about" element={<AboutPage />} />
+            <Route path="/ko/services" element={<ServicesPage />} />
+            <Route path="/ko/capabilities" element={<CapabilitiesPage />} />
+            <Route path="/ko/process" element={<ProcessPage />} />
+            <Route path="/ko/partners" element={<PartnersPage />} />
+            <Route path="/ko/contact" element={<ContactPage />} />
+
             {/* Fallback */}
-            <Route path="*" element={<HomePage />} />
+            <Route path="*" element={<Navigate to="/en" replace />} />
           </Routes>
         </Layout>
       </I18nProvider>

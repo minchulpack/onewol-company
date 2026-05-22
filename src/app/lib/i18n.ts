@@ -19,11 +19,11 @@ export function useI18n(): I18nContextValue {
 }
 
 export function getLocaleFromPath(pathname: string): Locale {
-  return pathname.startsWith('/en') ? 'en' : 'ko';
+  return pathname.startsWith('/ko') ? 'ko' : 'en';
 }
 
 export function localePath(locale: Locale, path = ''): string {
-  const base = locale === 'en' ? '/en' : '';
+  const base = locale === 'en' ? '/en' : '/ko';
   if (!path || path === '/') return base || '/';
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
@@ -36,7 +36,11 @@ export function pathForLocale(path: string, targetLocale: Locale): string {
     ? path.slice(3)
     : path.startsWith('/en')
       ? '/'
-      : path;
+      : path.startsWith('/ko/')
+        ? path.slice(3)
+        : path.startsWith('/ko')
+          ? '/'
+          : path;
 
   return localePath(targetLocale, withoutLocale);
 }

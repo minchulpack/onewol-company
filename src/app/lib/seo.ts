@@ -21,16 +21,16 @@ export function useSeo(locale: Locale, t: SiteContent) {
     setMeta('og:description', t.meta.ogDescription, true);
     setMeta('og:type', 'website', true);
     setMeta('og:locale', locale === 'ko' ? 'ko_KR' : 'en_US', true);
-    setMeta('og:url', `${SITE_URL}${locale === 'en' ? '/en' : '/'}`, true);
+    setMeta('og:url', `${SITE_URL}${locale === 'en' ? '/en' : '/ko'}`, true);
     setMeta('og:site_name', 'O_NEWOL COMPANY', true);
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', t.meta.ogTitle);
     setMeta('twitter:description', t.meta.ogDescription);
 
-    setLink('canonical', `${SITE_URL}${locale === 'en' ? '/en' : '/'}`);
-    setLink('alternate', `${SITE_URL}/`, { hreflang: 'ko' });
+    setLink('canonical', `${SITE_URL}${locale === 'en' ? '/en' : '/ko'}`);
+    setLink('alternate', `${SITE_URL}/ko`, { hreflang: 'ko' });
     setLink('alternate', `${SITE_URL}/en`, { hreflang: 'en' });
-    setLink('alternate', `${SITE_URL}/`, { hreflang: 'x-default' });
+    setLink('alternate', `${SITE_URL}/en`, { hreflang: 'x-default' });
 
     setJsonLd({
       '@context': 'https://schema.org',
