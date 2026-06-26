@@ -1,41 +1,79 @@
-import { motion } from 'motion/react';
+import { useRef } from 'react';
+import { motion, useAnimationFrame } from 'motion/react';
 import { useI18n } from '../../lib/i18n';
-import { SectionShell } from '../ui/SectionShell';
-import { RevealGroup } from '../ui/Reveal';
-import { fadeUp } from '../../lib/motion';
 
-const sizes = [
-  'text-[22px]',
-  'text-[18px]',
-  'text-[26px]',
-  'text-[20px]',
-  'text-[16px]',
-  'text-[24px]',
-  'text-[18px]',
-  'text-[20px]',
-];
+function Marquee({ items }: { items: string[] }) {
+  const x = useRef(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const speed = 0.6; // px per frame
+
+  useAnimationFrame(() => {
+    if (!ref.current) return;
+    x.current -= speed;
+    const w = ref.current.scrollWidth / 2;
+    if (Math.abs(x.current) >= w) x.current = 0;
+    ref.current.style.transform = `translateX(${x.current}px)`;
+  });
+
+  const doubled = [...items, ...items];
+
+  return (
+    <div className="overflow-hidden">
+      <div ref={ref} className="flex gap-12 whitespace-nowrap" style={{ width: 'max-content' }}>
+        {doubled.map((name, i) => (
+          <span
+            key={`${name}-${i}`}
+            className="font-display text-[clamp(18px,2.2vw,28px)] font-light
+                       tracking-[-0.01em] text-white/40 hover:text-white/70
+                       transition-colors duration-500 cursor-default shrink-0"
+          >
+            {name}
+            <span className="ml-12 inline-block text-[#C8AA80]/30 text-base">·</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function Partners() {
   const { t } = useI18n();
+
   return (
-    <SectionShell
-      id="partners"
-      eyebrow={t.partners.eyebrow}
-      title={t.partners.title}
-      body={t.partners.body}
-      className="bg-[#FBF8F3]"
-    >
-      <RevealGroup className="flex flex-wrap items-baseline justify-center gap-x-8 gap-y-6 max-w-4xl mx-auto text-center">
-        {t.partners.list.map((p, i) => (
-          <motion.span
-            key={`${p}-${i}`}
-            variants={fadeUp}
-            className={`${sizes[i % sizes.length]} text-[var(--brand-charcoal)]/55 hover:text-[var(--brand-accent)] transition-colors duration-500 tracking-[-0.005em] cursor-default`}
+    <section id="partners" className="scroll-mt-20 bg-[#0D0C14] text-white
+                                      border-t border-white/[0.06]">
+      {/* Header */}
+      <div className="max-w-[1320px] mx-auto px-6 md:px-12 lg:px-20 pt-20 pb-14">
+        <div data-reveal="up" className="flex flex-col md:flex-row md:items-end gap-6 md:gap-16">
+          <div>
+            <p className="text-[9px] tracking-[0.36em] uppercase text-[#C8AA80] mb-4">
+              {t.partners.eyebrow}
+            </p>
+            <h2 className="font-display text-[clamp(32px,5vw,64px)] font-light
+                           leading-[1.1] tracking-[-0.02em] text-white">
+              {t.partners.title}
+            </h2>
+          </div>
+          <p className="max-w-[300px] text-[13px] leading-[1.8] text-white/35 md:mb-2">
+            {t.partners.body}
+          </p>
+        </div>
+      </div>
+
+      {/* Marquee rows */}
+      <div className="py-6 flex flex-col gap-5 border-t border-white/[0.06]">
+        <Marquee items={t.partners.list.slice(0, 10)} />
+        <div className="relative">
+          <div
+            className="overflow-hidden"
+            style={{ direction: 'rtl' }}
           >
-            {p}
-          </motion.span>
-        ))}
-      </RevealGroup>
-    </SectionShell>
+            <Marquee items={t.partners.list.slice(9)} />
+          </div>
+        </div>
+      </div>
+
+      <div className="pb-16" />
+    </section>
   );
 }
