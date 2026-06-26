@@ -6,6 +6,7 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { useSeo } from './lib/seo';
 import { useI18n } from './lib/i18n';
+import { ScrollRevealProvider } from './lib/useScrollReveal';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ServicesPage } from './pages/ServicesPage';
@@ -63,6 +64,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      <ScrollRevealProvider />
       <Header />
       {children}
       <Footer />
