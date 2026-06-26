@@ -1,0 +1,223 @@
+/* ═══════════════════════════════════════════════════════════
+   O_NEWOL — Global Animation & Layout Utilities
+   달바 스타일 스크롤 인터랙션 시스템
+═══════════════════════════════════════════════════════════ */
+
+/* ─── Keyframes ─────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes revealLine {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─── Scroll Reveal Base ────────────────────────────────── */
+
+[data-reveal] {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 0.8s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal="up"],
+[data-reveal] {
+  transform: translateY(36px);
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+
+[data-reveal="left"] {
+  transform: translateX(-32px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(32px);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.94);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger children */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-stagger].is-visible > *:nth-child(1)  { opacity: 1; transform: none; transition-delay: 0ms;   }
+[data-stagger].is-visible > *:nth-child(2)  { opacity: 1; transform: none; transition-delay: 80ms;  }
+[data-stagger].is-visible > *:nth-child(3)  { opacity: 1; transform: none; transition-delay: 160ms; }
+[data-stagger].is-visible > *:nth-child(4)  { opacity: 1; transform: none; transition-delay: 240ms; }
+[data-stagger].is-visible > *:nth-child(5)  { opacity: 1; transform: none; transition-delay: 320ms; }
+[data-stagger].is-visible > *:nth-child(6)  { opacity: 1; transform: none; transition-delay: 400ms; }
+[data-stagger].is-visible > *:nth-child(n+7){ opacity: 1; transform: none; transition-delay: 480ms; }
+
+/* ─── Section Zone Classes ──────────────────────────────── */
+
+.zone-light {
+  background-color: var(--zone-light-bg);
+  color: var(--zone-light-fg);
+}
+
+.zone-white {
+  background-color: var(--zone-white-bg);
+  color: var(--zone-white-fg);
+}
+
+.zone-dark {
+  background-color: var(--zone-dark-bg);
+  color: var(--zone-dark-fg);
+}
+
+.zone-dark [data-reveal],
+.zone-dark [data-stagger] > * {
+  will-change: opacity, transform;
+}
+
+/* ─── Editorial Typography Utilities ───────────────────── */
+
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.text-display-xl {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(52px, 10vw, 140px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+}
+
+.text-display-lg {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(36px, 6vw, 80px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-display-md {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(24px, 3.5vw, 48px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-label {
+  font-family: var(--font-sans-en);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+
+.zone-dark .text-label {
+  color: var(--brand-muted-sand);
+}
+
+/* ─── Layout Utilities ──────────────────────────────────── */
+
+.section-pad {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+.section-pad-sm {
+  padding-top: var(--section-gap-sm);
+  padding-bottom: var(--section-gap-sm);
+}
+
+.container-editorial {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 80px);
+}
+
+/* ─── Divider Line ──────────────────────────────────────── */
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--brand-line);
+}
+
+.zone-dark .divider {
+  background: var(--brand-line-dark);
+}
+
+/* ─── Hover Underline Link ──────────────────────────────── */
+
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+button, a, [role="button"] {
+  cursor: pointer;
+}
+
+/* ─── Reduced motion fallback ───────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
