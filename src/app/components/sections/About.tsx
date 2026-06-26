@@ -1,44 +1,80 @@
-import { motion } from 'motion/react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import { useI18n } from '../../lib/i18n';
-import { Reveal, RevealGroup } from '../ui/Reveal';
-import { fadeUp } from '../../lib/motion';
+
+const ABOUT_IMG =
+  'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1200&q=85&auto=format&fit=crop';
 
 export function About() {
   const { t } = useI18n();
-  return (
-    <section
-      id="about"
-      className="relative scroll-mt-24 px-6 py-24 sm:py-28 md:py-32 lg:py-40 bg-[var(--brand-warm-white)]"
-    >
-      <div className="mx-auto grid w-full max-w-[1200px] gap-12 md:grid-cols-[1fr_1.1fr] md:gap-20">
-        <Reveal>
-          <div className="text-xs tracking-[0.24em] uppercase text-[var(--brand-accent)] mb-4">
-            {t.about.eyebrow}
-          </div>
-          <h2 className="text-[clamp(28px,4vw,44px)] leading-[1.2] tracking-[-0.01em] text-[var(--brand-charcoal)]">
-            {t.about.title}
-          </h2>
-          <p className="mt-6 text-[15px] md:text-[16px] leading-[1.8] text-[var(--brand-soft-gray)] whitespace-pre-line">
-            {t.about.body}
-          </p>
-        </Reveal>
+  const reduce = useReducedMotion();
+  const imgRef = useRef<HTMLDivElement>(null);
 
-        <RevealGroup className="grid grid-cols-2 gap-3 sm:gap-4">
-          {t.about.features.map((f, i) => (
-            <motion.div
-              key={f}
-              variants={fadeUp}
-              className="group relative rounded-2xl border border-[var(--brand-line)] bg-white/60 p-6 md:p-7 transition-all duration-500 hover:bg-white hover:border-[var(--brand-muted-sand)] hover:-translate-y-1"
-            >
-              <div className="text-[11px] tracking-[0.2em] text-[var(--brand-muted-sand)]">
-                0{i + 1}
-              </div>
-              <div className="mt-6 text-[15px] md:text-[17px] text-[var(--brand-charcoal)] tracking-[-0.005em]">
-                {f}
-              </div>
-            </motion.div>
-          ))}
-        </RevealGroup>
+  const { scrollYProgress } = useScroll({
+    target: imgRef,
+    offset: ['start end', 'end start'],
+  });
+  const imgY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
+
+  return (
+    <section id="about" className="scroll-mt-20 bg-[#FAFAF8]">
+      {/* ── Full-bleed image ── */}
+      <div ref={imgRef} className="relative h-[70vh] overflow-hidden">
+        <motion.div
+          className="absolute inset-0"
+          style={reduce ? undefined : { y: imgY }}
+        >
+          <img
+            src={ABOUT_IMG}
+            alt="Skincare serum texture"
+            className="h-[116%] w-full object-cover object-center -mt-[8%]"
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-[#FAFAF8]/10" />
+
+        {/* Eyebrow overlay */}
+        <div className="absolute top-8 left-8 md:left-12">
+          <p className="text-[9px] tracking-[0.36em] uppercase text-white/50">
+            {t.about.eyebrow}
+          </p>
+        </div>
+      </div>
+
+      {/* ── Text block ── */}
+      <div className="max-w-[1320px] mx-auto px-6 md:px-12 lg:px-20 py-20 md:py-28">
+        <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 md:gap-20 items-start">
+          {/* Left: title */}
+          <div data-reveal="up">
+            <h2 className="font-display text-[clamp(32px,5vw,64px)] font-light leading-[1.1]
+                           tracking-[-0.02em] text-[#111]">
+              {t.about.title}
+            </h2>
+          </div>
+
+          {/* Right: body + features */}
+          <div data-reveal="up" data-reveal-delay="100">
+            <p className="text-[15px] leading-[1.9] text-[#8A857D] whitespace-pre-line mb-12">
+              {t.about.body}
+            </p>
+
+            {/* Feature grid */}
+            <div data-stagger className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {t.about.features.map((f, i) => (
+                <div
+                  key={f}
+                  className="group border border-[rgba(17,17,17,0.07)] rounded-xl p-5
+                             hover:border-[#C9B79F] hover:bg-white
+                             transition-all duration-500 cursor-default"
+                >
+                  <p className="text-[10px] tracking-[0.2em] text-[#C9B79F] mb-3">
+                    0{i + 1}
+                  </p>
+                  <p className="text-[13px] text-[#111] leading-snug">{f}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
