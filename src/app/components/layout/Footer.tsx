@@ -14,38 +14,54 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-[var(--brand-line)] bg-[var(--brand-warm-white)]">
-      <div className="mx-auto max-w-[1200px] px-6 py-16 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="bg-[#0D0C14] text-white">
+      {/* ── Main footer body ── */}
+      <div className="max-w-[1320px] mx-auto px-6 md:px-12 lg:px-20 pt-16 pb-10
+                      grid md:grid-cols-[1.6fr_1fr_1fr] gap-10 border-b border-white/[0.07]">
+        {/* Brand */}
         <div>
-          <Link href="/" className="text-[15px] tracking-[0.08em] text-[var(--brand-charcoal)]">
+          <Link href="/"
+            className="block font-display text-[22px] font-light tracking-[-0.01em] text-white
+                       hover:text-[#C8AA80] transition-colors duration-300">
             onewwol company
           </Link>
-          <p className="mt-4 text-sm leading-[1.7] text-[var(--brand-soft-gray)]">
+          <p className="mt-4 text-[12px] leading-[1.9] text-white/35 max-w-[280px]">
             {t.footer.description}
           </p>
         </div>
 
-        <div className="text-sm leading-[1.9] text-[var(--brand-soft-gray)]">
-          <div>{t.footer.biz}</div>
-          <div>{t.footer.address}</div>
-          <div>{t.footer.email}</div>
-          <div>{t.footer.phone}</div>
+        {/* Business info */}
+        <div className="text-[11px] leading-[2] text-white/30 space-y-0.5">
+          <p>{t.footer.biz}</p>
+          <p>{t.footer.address}</p>
+          <p>{t.footer.email}</p>
+          <p>{t.footer.phone}</p>
         </div>
 
-        <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm md:justify-end h-fit">
+        {/* Nav */}
+        <nav className="flex flex-col gap-2 md:items-end">
           {navLinks.map(({ label, href }) => (
             <Link
               key={href}
               href={href}
-              className="text-[var(--brand-charcoal)]/70 hover:text-[var(--brand-accent)] transition-colors"
+              className="text-[12px] tracking-[0.04em] text-white/35
+                         hover:text-white transition-colors duration-300"
             >
               {label}
             </Link>
           ))}
         </nav>
       </div>
-      <div className="border-t border-[var(--brand-line)] py-6 text-center text-xs tracking-wide text-[var(--brand-soft-gray)]">
-        {t.footer.rights}
+
+      {/* ── Bottom bar ── */}
+      <div className="max-w-[1320px] mx-auto px-6 md:px-12 lg:px-20 py-5
+                      flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <p className="text-[10px] tracking-[0.06em] text-white/20">
+          {t.footer.rights}
+        </p>
+        <p className="text-[10px] tracking-[0.2em] uppercase text-white/15">
+          Cosmetics · OEM / ODM
+        </p>
       </div>
     </footer>
   );
