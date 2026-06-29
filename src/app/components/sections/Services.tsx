@@ -5,7 +5,7 @@ import { useI18n } from '../../lib/i18n';
 import { Link } from '../ui/Link';
 
 const SERVICE_IMGS = [
-  'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=900&q=85&auto=format&fit=crop',
+  '/5.png',
   'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=900&q=85&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1617897903246-719242758050?w=900&q=85&auto=format&fit=crop',
 ];
