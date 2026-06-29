@@ -3,8 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import { useI18n } from '../../lib/i18n';
 import { ButtonLink } from '../ui/Button';
 
-const HERO_IMG =
-  'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1800&q=85&auto=format&fit=crop';
+const HERO_IMG = '/8.png';
 
 export function Hero() {
   const { t } = useI18n();
