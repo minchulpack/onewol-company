@@ -13,6 +13,27 @@ export interface CapabilityGroup {
   items: string[];
 }
 
+export interface MoqColumn {
+  key: string;
+  label: string;
+  highlight?: boolean;
+  minOrder: string;
+  materials: string;
+  sample: string;
+  reorder: string;
+}
+
+export interface PriceRow {
+  item: string;
+  values: string[];
+}
+
+export interface QuoteRow {
+  item: string;
+  qty: string;
+  amount: string;
+}
+
 export interface ProcessStep {
   step: string;
   title: string;
@@ -62,6 +83,25 @@ export interface SiteContent {
     title: string;
     body: string;
     groups: CapabilityGroup[];
+  };
+  moq: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    rowLabels: { minOrder: string; materials: string; sample: string; reorder: string };
+    columns: MoqColumn[];
+    note: string;
+  };
+  pricing: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    tableHead: string[];
+    rows: PriceRow[];
+    exampleTitle: string;
+    exampleHead: string[];
+    exampleRows: QuoteRow[];
+    note: string;
   };
   process: {
     eyebrow: string;

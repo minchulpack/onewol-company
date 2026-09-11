@@ -4,10 +4,11 @@ import { ArrowRight } from 'lucide-react';
 import { useI18n } from '../../lib/i18n';
 import { Link } from '../ui/Link';
 
+// t.services.items 순서와 1:1 대응 — [0] ODM, [1] OEM, [2] Consulting
 const SERVICE_IMGS = [
-  '/5.png',
-  'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=900&q=85&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1617897903246-719242758050?w=900&q=85&auto=format&fit=crop',
+  '/images/svc-odm.jpg',
+  '/images/svc-oem.jpg',
+  '/images/svc-consulting.jpg',
 ];
 
 export function Services() {

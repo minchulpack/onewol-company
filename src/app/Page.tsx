@@ -6,6 +6,8 @@ import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Services } from './components/sections/Services';
 import { Capabilities } from './components/sections/Capabilities';
+import { Moq } from './components/sections/Moq';
+import { Pricing } from './components/sections/Pricing';
 import { Process } from './components/sections/Process';
 import { ProductionGuide } from './components/sections/ProductionGuide';
 import { Partners } from './components/sections/Partners';
@@ -27,6 +29,8 @@ export function Page() {
         <About />
         <Services />
         <Capabilities />
+        <Moq />
+        <Pricing />
         <Process />
         <ProductionGuide />
         <Partners />

@@ -5,12 +5,12 @@ import { useI18n } from '../../lib/i18n';
 import { ButtonLink } from '../ui/Button';
 
 const GUIDE_IMG =
-  'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1400&q=85&auto=format&fit=crop';
+  '/images/guide-banner.jpg';
 
 const CARD_IMGS = [
-  'https://images.unsplash.com/photo-1576426863848-c21f53c60b19?w=600&q=80&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1585751119414-ef2636f8aede?w=600&q=80&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?w=600&q=80&auto=format&fit=crop',
+  '/images/guide-1.jpg',
+  '/images/guide-2.jpg',
+  '/images/guide-3.jpg',
 ];
 
 export function ProductionGuide() {

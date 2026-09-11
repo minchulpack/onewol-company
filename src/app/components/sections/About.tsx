@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
 import { useI18n } from '../../lib/i18n';
 
 const ABOUT_IMG =
-  'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1200&q=85&auto=format&fit=crop';
+  '/images/about.jpg';
 
 export function About() {
   const { t } = useI18n();
@@ -26,7 +26,7 @@ export function About() {
         >
           <img
             src={ABOUT_IMG}
-            alt="Skincare serum texture"
+            alt="제형 개발 연구 과정"
             className="h-[116%] w-full object-cover object-center -mt-[8%]"
           />
         </motion.div>

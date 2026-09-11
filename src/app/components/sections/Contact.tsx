@@ -8,7 +8,7 @@ const EMAILJS_READY =
   Boolean(import.meta.env?.VITE_EMAILJS_PUBLIC_KEY);
 
 const CONTACT_IMG =
-  'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=900&q=85&auto=format&fit=crop';
+  '/images/contact.jpg';
 
 export function Contact() {
   const { t } = useI18n();
