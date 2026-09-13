@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useI18n } from '../../lib/i18n';
+import { track } from '../../lib/analytics';
 import { Button } from '../ui/button';
 
 /** 수신 주소 — 폼 제출은 모두 이 주소로 간다 */
@@ -57,6 +58,11 @@ export function Contact() {
       window.location.href =
         `mailto:${INBOX}?subject=${encodeURIComponent(subject)}` +
         `&body=${encodeURIComponent(body)}`;
+      track('generate_lead', {
+        method: 'mailto',
+        service_type: val('serviceType') || '미선택',
+        product_category: val('productCategory') || '미선택',
+      });
       setNotice(t.contact.placeholderNotice);
       setSubmitting(false);
       return;
@@ -76,9 +82,16 @@ export function Contact() {
       });
       const json = (await res.json()) as { success?: boolean };
       if (!res.ok || !json.success) throw new Error('send failed');
+      track('generate_lead', {
+        method: 'web3forms',
+        service_type: val('serviceType') || '미선택',
+        product_category: val('productCategory') || '미선택',
+        quantity: val('quantity') || '미기재',
+      });
       setNotice(t.contact.successNotice);
       form.reset();
     } catch {
+      track('form_error', { form: 'contact' });
       setNotice(t.contact.errorNotice);
     } finally {
       setSubmitting(false);

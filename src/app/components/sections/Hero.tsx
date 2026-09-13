@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 import { useI18n } from '../../lib/i18n';
+import { track } from '../../lib/analytics';
 import { ButtonLink } from '../ui/button';
 
 const HERO_IMG = '/8.png';
@@ -92,10 +93,12 @@ export function Hero() {
             </p>
             <div className="flex items-center gap-4 shrink-0">
               <ButtonLink href="/contact" size="lg"
+                onClick={() => track('cta_click', { cta: 'hero_primary', to: 'contact' })}
                 className="!bg-white !text-[#0D0C14] hover:!bg-white/90 !border-0">
                 {t.hero.primaryCta}
               </ButtonLink>
-              <ButtonLink href="/capabilities" size="lg" variant="ghost"
+              <ButtonLink href="/pricing" size="lg" variant="ghost"
+                onClick={() => track('cta_click', { cta: 'hero_secondary', to: 'pricing' })}
                 className="!text-white !border-white/30 hover:!border-white hover:!bg-white/10">
                 {t.hero.secondaryCta}
               </ButtonLink>
