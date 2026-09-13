@@ -3,12 +3,14 @@ import type { SiteContent } from './types';
 export const ko: SiteContent = {
   htmlLang: 'ko',
   meta: {
-    title: 'onewwol company | 화장품 OEM ODM 소량생산 파트너',
+    title: '오뉴월컴퍼니 | 화장품 OEM ODM 소량생산 · 300개부터',
     description:
-      'onewwol company는 제형 개발, 콘셉트 기획, 디자인·패키징, 제조·출고, 수출까지 연결하는 화장품 OEM/ODM 원스톱 파트너입니다.',
-    ogTitle: 'onewwol company — 화장품 OEM/ODM 원스톱 파트너',
+      '오뉴월컴퍼니는 화장품 OEM·ODM 소량생산 전문 제조 파트너입니다. 3종 300개부터 시작하는 소량 생산, 제형 개발부터 콘셉트 기획·디자인·패키징·제조·출고·수출까지 하나의 흐름으로 연결합니다. 코스메슈티컬·더마코스메틱·반영구색소 제조.',
+    keywords:
+      '오뉴월컴퍼니, 오뉴월 컴퍼니, 오뉴월, 오뉴월의새벽, 오뉴월의 새벽, 화장품 OEM, 화장품 ODM, 화장품 소량생산, 화장품 소량제작, 소량 OEM, 화장품 제조업체, 코스메슈티컬, 더마코스메틱, 반영구색소, 스킨케어 OEM, 세럼 제작, 크림 제작, 화장품 브랜드 런칭, MOQ 300개',
+    ogTitle: '오뉴월컴퍼니 | 화장품 OEM ODM 소량생산',
     ogDescription:
-      '소량 생산부터 브랜드 완성까지, 화장품 OEM/ODM을 하나의 흐름으로 연결합니다.',
+      '3종 300개부터 시작하는 화장품 소량 생산. 제형 개발부터 디자인·패키징·제조·수출까지 하나의 흐름으로.',
   },
   nav: {
     about: 'About',

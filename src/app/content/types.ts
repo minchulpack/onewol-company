@@ -45,6 +45,7 @@ export interface SiteContent {
   meta: {
     title: string;
     description: string;
+    keywords: string;
     ogTitle: string;
     ogDescription: string;
   };

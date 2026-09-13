@@ -23,9 +23,14 @@ export function useSeo(locale: Locale, t: SiteContent) {
     setMeta('og:locale', locale === 'ko' ? 'ko_KR' : 'en_US', true);
     setMeta('og:url', `${SITE_URL}${locale === 'en' ? '/en' : '/ko'}`, true);
     setMeta('og:site_name', 'onewwol company', true);
+    setMeta('og:image', `${SITE_URL}/og.jpg`, true);
+    setMeta('og:image:width', '1200', true);
+    setMeta('og:image:height', '630', true);
+    setMeta('keywords', t.meta.keywords);
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', t.meta.ogTitle);
     setMeta('twitter:description', t.meta.ogDescription);
+    setMeta('twitter:image', `${SITE_URL}/og.jpg`);
 
     setLink('canonical', `${SITE_URL}${locale === 'en' ? '/en' : '/ko'}`);
     setLink('alternate', `${SITE_URL}/ko`, { hreflang: 'ko' });
@@ -35,9 +40,23 @@ export function useSeo(locale: Locale, t: SiteContent) {
     setJsonLd({
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'onewwol company',
+      '@id': `${SITE_URL}/#organization`,
+      name: locale === 'ko' ? '오뉴월컴퍼니' : 'O_NEWWOL COMPANY',
+      alternateName: ['O_NEWWOL COMPANY', '오뉴월컴퍼니', '오뉴월 컴퍼니', 'onewwol company'],
       url: SITE_URL,
+      logo: `${SITE_URL}/favicon-512.png`,
+      image: `${SITE_URL}/og.jpg`,
       description: t.meta.description,
+      email: 'onewwol1210@naver.com',
+      telephone: '+82-70-7633-1210',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '동탄기흥로 393-20 1동 113호',
+        addressLocality: '화성시',
+        addressRegion: '경기도',
+        addressCountry: 'KR',
+      },
+      brand: { '@type': 'Brand', name: '오뉴월의새벽', alternateName: 'Saebyeog' },
       sameAs: [],
     });
   }, [locale, t]);

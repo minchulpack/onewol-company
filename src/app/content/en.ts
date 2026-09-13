@@ -3,9 +3,11 @@ import type { SiteContent } from './types';
 export const en: SiteContent = {
   htmlLang: 'en',
   meta: {
-    title: 'onewwol company | Cosmetic OEM ODM Partner',
+    title: 'O_NEWWOL COMPANY | Cosmetic OEM ODM · Small-batch from 300 units',
     description:
-      'onewwol company is a cosmetic OEM/ODM partner connecting formula development, concept planning, package design, manufacturing, delivery, and export support.',
+      'O_NEWWOL COMPANY is a Korean cosmetic OEM/ODM manufacturer specialising in small-batch production from 300 units. We connect formula development, concept planning, package design, manufacturing, delivery and export into one seamless flow. Cosmeceutical, dermocosmetic and semi-permanent pigment manufacturing.',
+    keywords:
+      'onewwol company, O_NEWWOL, cosmetic OEM, cosmetic ODM, Korean cosmetic manufacturer, small batch cosmetics, private label cosmetics Korea, low MOQ cosmetics, cosmeceutical OEM, dermocosmetic manufacturer, semi-permanent pigment, skincare manufacturer Korea, serum manufacturing, K-beauty OEM, Saebyeog',
     ogTitle: 'onewwol company — Cosmetic OEM/ODM Partner',
     ogDescription:
       'From small-batch production to complete brand development, we connect cosmetic OEM/ODM processes into one seamless flow.',
