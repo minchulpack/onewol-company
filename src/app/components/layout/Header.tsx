@@ -21,6 +21,8 @@ export function Header() {
     ['about', '/about'],
     ['services', '/services'],
     ['capabilities', '/capabilities'],
+    ['moq', '/moq'],
+    ['pricing', '/pricing'],
     ['process', '/process'],
     ['partners', '/partners'],
     ['contact', '/contact'],
@@ -37,7 +39,7 @@ export function Header() {
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
         ${isLight
           ? 'bg-[#FAFAF8]/90 backdrop-blur-md border-b border-[rgba(17,17,17,0.07)]'
-          : 'bg-transparent'
+          : 'bg-gradient-to-b from-black/25 to-transparent'
         }`}
     >
       <div className="max-w-[1320px] mx-auto flex h-16 md:h-20 items-center justify-between
@@ -52,15 +54,15 @@ export function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
           {items.map(([key, path]) => (
             <Link
               key={key}
               href={path}
               className={`text-[11px] tracking-[0.1em] uppercase transition-colors duration-300
                 ${isLight
-                  ? 'text-[#111]/60 hover:text-[#111]'
-                  : 'text-white/60 hover:text-white'
+                  ? 'text-[#111]/65 hover:text-[#111]'
+                  : 'text-white/75 hover:text-white'
                 }`}
             >
               {t.nav[key]}
@@ -69,16 +71,19 @@ export function Header() {
         </nav>
 
         {/* Right actions */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <button
             onClick={() => setLocale(otherLocale)}
-            className={`text-[10px] tracking-[0.24em] uppercase transition-colors duration-300
-              ${isLight ? 'text-[#111]/40 hover:text-[#111]' : 'text-white/40 hover:text-white'}`}
+            className="text-[10px] tracking-[0.24em] uppercase transition-colors duration-300"
             aria-label="Toggle language"
           >
-            <span className={locale === 'ko' ? 'opacity-100' : 'opacity-30'}>KR</span>
-            <span className="opacity-20 mx-1.5">/</span>
-            <span className={locale === 'en' ? 'opacity-100' : 'opacity-30'}>EN</span>
+            <span className={locale === 'ko'
+              ? (isLight ? 'text-[#111] font-medium' : 'text-white font-medium')
+              : (isLight ? 'text-[#111]/45' : 'text-white/55')}>KR</span>
+            <span className={`mx-1.5 ${isLight ? 'text-[#111]/25' : 'text-white/35'}`}>/</span>
+            <span className={locale === 'en'
+              ? (isLight ? 'text-[#111] font-medium' : 'text-white font-medium')
+              : (isLight ? 'text-[#111]/45' : 'text-white/55')}>EN</span>
           </button>
           <ButtonLink
             href="/contact"
@@ -95,7 +100,7 @@ export function Header() {
 
         {/* Mobile menu button */}
         <button
-          className={`md:hidden p-2 -mr-2 transition-colors duration-300
+          className={`lg:hidden p-2 -mr-2 transition-colors duration-300
             ${isLight ? 'text-[#111]' : 'text-white'}`}
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
@@ -113,7 +118,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden bg-[#FAFAF8]/97 backdrop-blur-md
+            className="lg:hidden bg-[#FAFAF8]/97 backdrop-blur-md
                        border-b border-[rgba(17,17,17,0.07)]"
           >
             <nav className="flex flex-col px-6 py-6 gap-1">

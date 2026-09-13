@@ -14,6 +14,8 @@ export const ko: SiteContent = {
     about: 'About',
     services: 'Services',
     capabilities: 'Capabilities',
+    moq: 'MOQ',
+    pricing: 'Price',
     process: 'Process',
     partners: 'Partners',
     contact: 'Contact',

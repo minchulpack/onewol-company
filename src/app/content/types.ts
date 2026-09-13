@@ -52,6 +52,8 @@ export interface SiteContent {
     about: string;
     services: string;
     capabilities: string;
+    moq: string;
+    pricing: string;
     process: string;
     partners: string;
     contact: string;
