@@ -2,8 +2,6 @@ import { Hero } from '../components/sections/Hero';
 import { About } from '../components/sections/About';
 import { Services } from '../components/sections/Services';
 import { Capabilities } from '../components/sections/Capabilities';
-import { Moq } from '../components/sections/Moq';
-import { Pricing } from '../components/sections/Pricing';
 import { ProductionGuide } from '../components/sections/ProductionGuide';
 import { Partners } from '../components/sections/Partners';
 import { Contact } from '../components/sections/Contact';
@@ -18,8 +16,6 @@ export function HomePage() {
       <About />
       <Services />
       <Capabilities />
-      <Moq />
-      <Pricing />
       <ProductionGuide />
       <Partners />
       <Contact />

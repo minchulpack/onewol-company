@@ -12,6 +12,8 @@ import { AboutPage } from './pages/AboutPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { CapabilitiesPage } from './pages/CapabilitiesPage';
 import { ProcessPage } from './pages/ProcessPage';
+import { MoqPage } from './pages/MoqPage';
+import { PricingPage } from './pages/PricingPage';
 import { PartnersPage } from './pages/PartnersPage';
 import { ContactPage } from './pages/ContactPage';
 import { ScrollToTop } from './components/ScrollToTop';
@@ -86,6 +88,8 @@ export default function App() {
             <Route path="/en/about" element={<AboutPage />} />
             <Route path="/en/services" element={<ServicesPage />} />
             <Route path="/en/capabilities" element={<CapabilitiesPage />} />
+            <Route path="/en/moq" element={<MoqPage />} />
+            <Route path="/en/pricing" element={<PricingPage />} />
             <Route path="/en/process" element={<ProcessPage />} />
             <Route path="/en/partners" element={<PartnersPage />} />
             <Route path="/en/contact" element={<ContactPage />} />
@@ -95,6 +99,8 @@ export default function App() {
             <Route path="/ko/about" element={<AboutPage />} />
             <Route path="/ko/services" element={<ServicesPage />} />
             <Route path="/ko/capabilities" element={<CapabilitiesPage />} />
+            <Route path="/ko/moq" element={<MoqPage />} />
+            <Route path="/ko/pricing" element={<PricingPage />} />
             <Route path="/ko/process" element={<ProcessPage />} />
             <Route path="/ko/partners" element={<PartnersPage />} />
             <Route path="/ko/contact" element={<ContactPage />} />
