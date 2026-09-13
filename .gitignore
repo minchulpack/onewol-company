@@ -43,3 +43,4 @@ __figma__entrypoint__.ts
 
 # Temp files
 src/imports/*.png
+.env*
