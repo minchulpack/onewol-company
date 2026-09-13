@@ -266,8 +266,10 @@ export const ko: SiteContent = {
     brandOptions: ['기존 브랜드', '신규 브랜드', '준비 중'],
     submit: '문의 보내기',
     placeholderNotice:
-      '문의 기능은 연결 준비 중입니다. 이메일 또는 연락처를 통해 문의해주세요.',
-    successNotice: '문의가 정상적으로 접수되었습니다.',
+      '메일 작성 창이 열립니다. 창이 열리지 않으면 onewwol1210@naver.com 으로 보내주세요.',
+    successNotice: '문의가 정상적으로 접수되었습니다. 확인 후 회신드리겠습니다.',
+    errorNotice:
+      '전송에 실패했습니다. 잠시 후 다시 시도하시거나 onewwol1210@naver.com 으로 보내주세요.',
     validation: {
       name: '이름을 입력해주세요.',
       email: '올바른 이메일을 입력해주세요.',
@@ -279,7 +281,7 @@ export const ko: SiteContent = {
     description: '화장품 | 코스메슈티컬 | 더마코스메틱 | 반영구색소 | OEM/ODM',
     biz: '화장품책임판매업자 · 오뉴월컴퍼니',
     address: '경기도 화성시 동탄구 동탄기흥로 393-20 1동 113호 (파라곤스퀘어)',
-    email: 'thqnfos@naver.com',
+    email: 'onewwol1210@naver.com',
     phone: '070-7633-1210',
     nav: ['About', 'Services', 'Capabilities', 'Process', 'Partners', 'Contact'],
     rights: '© onewwol company. All rights reserved.',

@@ -2,10 +2,19 @@ import { useState, type FormEvent } from 'react';
 import { useI18n } from '../../lib/i18n';
 import { Button } from '../ui/button';
 
-const EMAILJS_READY =
-  Boolean(import.meta.env?.VITE_EMAILJS_SERVICE_ID) &&
-  Boolean(import.meta.env?.VITE_EMAILJS_TEMPLATE_ID) &&
-  Boolean(import.meta.env?.VITE_EMAILJS_PUBLIC_KEY);
+/** 수신 주소 — 폼 제출은 모두 이 주소로 간다 */
+const INBOX = 'onewwol1210@naver.com';
+
+/**
+ * Web3Forms 액세스 키. 있으면 서버로 직접 전송하고,
+ * 없으면 메일 클라이언트를 여는 방식으로 대체한다(문의가 유실되지 않도록).
+ */
+const W3F_KEY = import.meta.env?.VITE_WEB3FORMS_KEY as string | undefined;
+
+const FIELD_ORDER = [
+  'name', 'company', 'email', 'phone',
+  'serviceType', 'productCategory', 'quantity', 'brandStatus', 'message',
+] as const;
 
 const CONTACT_IMG =
   '/images/contact.jpg';
@@ -17,9 +26,11 @@ export function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const f = t.contact.fields;
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
     const next: Record<string, string> = {};
     if (!String(data.get('name') ?? '').trim()) next.name = t.contact.validation.name;
     const email = String(data.get('email') ?? '').trim();
@@ -30,17 +41,48 @@ export function Contact() {
     if (!data.get('agreement')) next.agreement = t.contact.validation.agreement;
     setErrors(next);
     if (Object.keys(next).length > 0) return;
+
+    setNotice(null);
     setSubmitting(true);
-    if (!EMAILJS_READY) {
+
+    const val = (k: string) => String(data.get(k) ?? '').trim();
+    const label = (k: string) => (f as Record<string, string>)[k] ?? k;
+    const body = FIELD_ORDER
+      .map((k) => `${label(k)}: ${val(k) || '-'}`)
+      .join('\n');
+    const subject = `[홈페이지 문의] ${val('company') || val('name')}`;
+
+    // 키가 없으면 메일 클라이언트로 대체 — 문의를 잃지 않는다
+    if (!W3F_KEY) {
+      window.location.href =
+        `mailto:${INBOX}?subject=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
       setNotice(t.contact.placeholderNotice);
       setSubmitting(false);
       return;
     }
-    setTimeout(() => {
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: W3F_KEY,
+          subject,
+          from_name: val('name'),
+          replyto: val('email'),
+          ...Object.fromEntries(FIELD_ORDER.map((k) => [label(k), val(k)])),
+        }),
+      });
+      const json = (await res.json()) as { success?: boolean };
+      if (!res.ok || !json.success) throw new Error('send failed');
       setNotice(t.contact.successNotice);
+      form.reset();
+    } catch {
+      setNotice(t.contact.errorNotice);
+    } finally {
       setSubmitting(false);
-      (e.target as HTMLFormElement).reset();
-    }, 600);
+    }
   }
 
   return (

@@ -269,6 +269,8 @@ export const en: SiteContent = {
     placeholderNotice:
       'The inquiry function is being prepared. Please contact us by email or phone for now.',
     successNotice: 'Your inquiry has been received.',
+    errorNotice:
+      'Sending failed. Please try again shortly, or email onewwol1210@naver.com.',
     validation: {
       name: 'Please enter your name.',
       email: 'Please enter a valid email.',
@@ -280,7 +282,7 @@ export const en: SiteContent = {
     description: 'Cosmetics | Cosmeceutical | Derma Cosmetics | Semi-permanent Pigment | OEM/ODM',
     biz: 'Business Registration No.: TBD',
     address: 'Address: TBD',
-    email: 'Email: TBD',
+    email: 'onewwol1210@naver.com',
     phone: 'Phone: TBD',
     nav: ['About', 'Services', 'Capabilities', 'Process', 'Partners', 'Contact'],
     rights: '© onewwol company. All rights reserved.',

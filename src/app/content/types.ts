@@ -146,6 +146,7 @@ export interface SiteContent {
     submit: string;
     placeholderNotice: string;
     successNotice: string;
+    errorNotice: string;
     validation: {
       name: string;
       email: string;
