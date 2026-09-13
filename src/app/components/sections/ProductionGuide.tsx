@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { useI18n } from '../../lib/i18n';
-import { ButtonLink } from '../ui/Button';
+import { ButtonLink } from '../ui/button';
 
 const GUIDE_IMG =
   '/images/guide-banner.jpg';

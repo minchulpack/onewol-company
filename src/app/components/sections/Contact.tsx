@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useI18n } from '../../lib/i18n';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/button';
 
 const EMAILJS_READY =
   Boolean(import.meta.env?.VITE_EMAILJS_SERVICE_ID) &&

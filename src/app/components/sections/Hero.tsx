@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 import { useI18n } from '../../lib/i18n';
-import { ButtonLink } from '../ui/Button';
+import { ButtonLink } from '../ui/button';
 
 const HERO_IMG = '/8.png';
 

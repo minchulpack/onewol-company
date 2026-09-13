@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useI18n } from '../../lib/i18n';
-import { ButtonLink } from '../ui/Button';
+import { ButtonLink } from '../ui/button';
 import { Link } from '../ui/Link';
 
 export function Header() {
