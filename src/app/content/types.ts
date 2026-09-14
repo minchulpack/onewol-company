@@ -13,27 +13,6 @@ export interface CapabilityGroup {
   items: string[];
 }
 
-export interface MoqColumn {
-  key: string;
-  label: string;
-  highlight?: boolean;
-  minOrder: string;
-  materials: string;
-  sample: string;
-  reorder: string;
-}
-
-export interface PriceRow {
-  item: string;
-  values: string[];
-}
-
-export interface QuoteRow {
-  item: string;
-  qty: string;
-  amount: string;
-}
-
 export interface ProcessStep {
   step: string;
   title: string;
@@ -53,8 +32,7 @@ export interface SiteContent {
     about: string;
     services: string;
     capabilities: string;
-    moq: string;
-    pricing: string;
+    brands: string;
     process: string;
     partners: string;
     contact: string;
@@ -87,24 +65,20 @@ export interface SiteContent {
     body: string;
     groups: CapabilityGroup[];
   };
-  moq: {
+;
+;
+  brands: {
     eyebrow: string;
     title: string;
     body: string;
-    rowLabels: { minOrder: string; materials: string; sample: string; reorder: string };
-    columns: MoqColumn[];
-    note: string;
-  };
-  pricing: {
-    eyebrow: string;
-    title: string;
-    body: string;
-    tableHead: string[];
-    rows: PriceRow[];
-    exampleTitle: string;
-    exampleHead: string[];
-    exampleRows: QuoteRow[];
-    note: string;
+    scopeLabel: string;
+    skuLabel: string;
+    yearLabel: string;
+    productsLabel: string;
+    backToBrands: string;
+    backToBrand: string;
+    viewDetail: string;
+    entries: BrandEntry[];
   };
   process: {
     eyebrow: string;
@@ -164,4 +138,26 @@ export interface SiteContent {
     nav: string[];
     rights: string;
   };
+}
+
+/** 브랜드관 — 자사/수행 브랜드 포트폴리오. 브랜드 아래 제품이 달린다. */
+export interface BrandProduct {
+  slug: string;
+  name: string;
+  nameEn: string;
+  claim: string;
+  tags: string[];
+  slices: number;
+}
+
+export interface BrandEntry {
+  slug: string;
+  name: string;
+  nameEn: string;
+  year: string;
+  kind: string;
+  summary: string;
+  scope: string[];
+  skuLabel: string;
+  products: BrandProduct[];
 }

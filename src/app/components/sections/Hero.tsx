@@ -97,8 +97,8 @@ export function Hero() {
                 className="!bg-white !text-[#0D0C14] hover:!bg-white/90 !border-0">
                 {t.hero.primaryCta}
               </ButtonLink>
-              <ButtonLink href="/pricing" size="lg" variant="ghost"
-                onClick={() => track('cta_click', { cta: 'hero_secondary', to: 'pricing' })}
+              <ButtonLink href="/brands" size="lg" variant="ghost"
+                onClick={() => track('cta_click', { cta: 'hero_secondary', to: 'brands' })}
                 className="!text-white !border-white/30 hover:!border-white hover:!bg-white/10">
                 {t.hero.secondaryCta}
               </ButtonLink>

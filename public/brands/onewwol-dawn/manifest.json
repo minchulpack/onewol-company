@@ -1,0 +1,26 @@
+{
+  "recovery-cream": {
+    "width": 860,
+    "height": 25328,
+    "slices": 11,
+    "sliceHeight": 2400
+  },
+  "repair-booster": {
+    "width": 860,
+    "height": 15640,
+    "slices": 7,
+    "sliceHeight": 2400
+  },
+  "white-booster": {
+    "width": 860,
+    "height": 26422,
+    "slices": 12,
+    "sliceHeight": 2400
+  },
+  "dew-mist": {
+    "width": 860,
+    "height": 20339,
+    "slices": 9,
+    "sliceHeight": 2400
+  }
+}
